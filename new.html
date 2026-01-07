@@ -1,0 +1,11 @@
+<html>
+<head></head>
+<body>
+    <h2>
+        Adding JavaScript in HTML Document
+    </h2>
+    <button onclick="alert('Button Clicked!')">
+        Click Here
+    </button>
+</body>
+</html>
