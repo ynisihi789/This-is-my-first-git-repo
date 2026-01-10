@@ -1,44 +1,34 @@
-async function searchTemples() {
-    const input = document.getElementById('searchInput').value.toLowerCase().trim();
+// first.js - Saved with UTF-8 encoding
+function searchTemples() {
+    const userInput = document.getElementById('searchInput').value.trim();
     const resultsDiv = document.getElementById('results');
-    
-    // Clear previous results
-    resultsDiv.innerHTML = "Searching...";
 
-    try {
-        // 1. Fetch the JSON file
-        const response = await fetch('temple.json');
-        const geoData = await response.json();
+    if (!userInput) {
+        resultsDiv.innerHTML = "Please enter a name.";
+        return;
+    }
 
-        // 2. Algorithm: Linear Search through the FeatureCollection
-        const matches = geoData.features.filter(feature => {
-            const name = feature.properties.name || "";
-            return name.toLowerCase().includes(input);
+    // Convert input to lowercase for a better match
+    const query = userInput.toLowerCase();
+
+    // Algorithm: Filter through templeData
+    const matches = templeData.features.filter(f => {
+        const name = (f.properties.name || "").toLowerCase();
+        return name.includes(query);
+    });
+
+    // Display the Results
+    if (matches.length > 0) {
+        let htmlContent = `<h3>Found ${matches.length} result(s):</h3>`;
+        matches.forEach(m => {
+            htmlContent += `
+                <div style="border-bottom: 1px solid #ccc; padding: 10px 0;">
+                    <strong>${m.properties.name}</strong><br>
+                    Coordinates: ${m.geometry.coordinates[1]}, ${m.geometry.coordinates[0]}
+                </div>`;
         });
-
-        // 3. Print the Answer to the browser
-        if (matches.length > 0) {
-            let htmlContent = `<h3>Found ${matches.length} Result(s):</h3><ul>`;
-            
-            matches.forEach(match => {
-                const name = match.properties.name;
-                const lat = match.geometry.coordinates[1];
-                const lon = match.geometry.coordinates[0];
-                
-                htmlContent += `<li>
-                    <strong>${name}</strong><br>
-                    Coordinates: ${lat}, ${lon}
-                </li><br>`;
-            });
-            
-            htmlContent += "</ul>";
-            resultsDiv.innerHTML = htmlContent;
-        } else {
-            resultsDiv.innerHTML = "<p>No temples found with that name.</p>";
-        }
-
-    } catch (error) {
-        resultsDiv.innerHTML = "<p>Error loading temple.json. Make sure you are using a local server.</p>";
-        console.error("Error:", error);
+        resultsDiv.innerHTML = htmlContent;
+    } else {
+        resultsDiv.innerHTML = "No temples found matching that name.";
     }
 }
