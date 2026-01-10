@@ -1,0 +1,10 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":{"type":"Point","coordinates":[82.9100625,27.7390625]},"properties":{"osm_type":"","name":"Shivraj area"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[82.8994375,27.5960625]},"properties":{"osm_type":"","name":"Shiv Temple"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[82.909732,27.6482959]},"properties":{"osm_type":"","name":"Supa Deurali Temple"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[82.7996226,27.6855333]},"properties":{"osm_type":"","name":"दुर्गा मन्दिर"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[82.8145422,27.7083372]},"properties":{"osm_type":"","name":"शिव मन्दिर रामुवादह"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[82.8385945,27.6974018]},"properties":{"osm_type":"","name":"शिव मन्दिर"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[82.8383179,27.7675309]},"properties":{"osm_type":"","name":"शिव मन्दिर"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[82.8022224,27.7560381]},"properties":{"osm_type":"","name":"शिचगढी मन्दिर"}}
+]}
